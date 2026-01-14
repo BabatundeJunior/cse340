@@ -4,3 +4,302 @@
 *:after {
   box-sizing: border-box;
 }
+
+
+/* =========================
+   Global Variables
+========================= */
+:root {
+  --bg: #f5f7fb;
+  --surface: #ffffff;
+  --text: #111827;
+  --muted: #4b5563;
+
+  --brand: #0ea5b7;      /* teal */
+  --brand-dark: #0b7285;
+  --nav: #1f2937;        /* dark slate */
+  --border: #cbd5e1;
+
+  --radius: 8px;
+  --shadow: 0 10px 30px rgba(0,0,0,0.10);
+  --maxw: 960px;
+}
+
+/* =========================
+   Base
+========================= */
+/* * { box-sizing: border-box; } */
+
+html, body { height: 100%; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.5;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+  height: auto;
+}
+
+a { color: inherit; }
+
+/* =========================
+   Layout wrapper coming from layout.ejs
+========================= */
+#wrapper {
+  background: var(--surface);
+  padding: 0 0 1rem;
+}
+
+/* =========================
+   Header
+========================= */
+#top-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1rem 0.5rem;
+}
+
+.brand_link {
+  text-decoration: none;
+  font-size: 1.6rem;
+  font-weight: 800;
+}
+
+.account_link {
+  text-decoration: none;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.account_link:hover { text-decoration: underline; }
+
+/* =========================
+   Navigation
+========================= */
+nav ul {
+  list-style: none;
+  margin: 0.25rem 1rem 1rem;
+  padding: 0;
+  display: flex;
+  gap: 0.75rem;
+  background: var(--nav);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+nav li {
+  flex: 1;
+  text-align: center;
+  padding: 0.6rem 0.4rem;
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+/* =========================
+   Main content
+========================= */
+main {
+  padding: 0 1rem;
+}
+
+.page-title {
+  margin: 0.25rem 0 1rem;
+  font-size: 1.7rem;
+  font-weight: 800;
+}
+
+/* =========================
+   Hero
+========================= */
+.hero {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.hero_image img {
+  width: 100%;
+  max-width: auto;
+  margin: 0 auto;
+}
+
+.hero_content {
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform: translate(0.75rem, 0.75rem);
+    background: linear-gradient(
+    135deg,
+    rgba(14, 165, 183, 0.20),
+    rgba(14, 165, 183, 0.05)
+  );
+  padding: 0;
+  max-width: 220px;
+  padding: 0.5rem 0.75rem;
+  margin: 0.25rem 0 0.75rem;
+  border-left: 4px solid var(--brand);
+  border-radius: 4px;
+}
+
+.hero_title {
+  margin: 0;
+  color: var(--brand);
+  font-size: 1.25rem;
+  font-weight: 800;
+}
+
+.hero_features {
+  list-style: none;
+  padding: 0;
+  margin: 0.25rem 0 0.75rem;
+  color: var(--text);
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.6rem 1rem;
+  border-radius: 3px;
+  text-decoration: none;
+  font-weight: 800;
+  border: 2px solid transparent;
+}
+
+.btn--primary {
+  background: var(--brand);
+  color: #062a2e;
+  border-color: var(--brand-dark);
+}
+
+.btn--primary:hover {
+  background: var(--brand-dark);
+  color: #fff;
+}
+
+/* =========================
+   Reviews + Upgrades
+   Mobile: Reviews first, Upgrades after (matches your mobile screenshot)
+========================= */
+.home-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+
+.reviews h2,
+.upgrades h2 {
+  margin: 0 0 0.75rem;
+  font-size: 1.25rem;
+}
+
+.reviews_list {
+  margin: 0;
+  padding-left: 1.2rem;
+}
+
+.reviews_list li {
+  margin: 0.4rem 0;
+}
+
+/* Upgrades grid */
+.upgrades_grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  max-width: 520px;
+}
+
+.upgrade-card {
+  text-decoration: underline;
+  color: #1d4ed8;
+  font-weight: 600;
+  display: grid;
+  gap: 0.35rem;
+}
+
+.upgrade-card_img {
+  background: var(--brand);
+  border: 1px solid var(--nav);
+  display: grid;
+  place-items: center;
+  padding: 0.75rem;
+  min-height: 90px;
+}
+
+.upgrade-card_img img {
+  max-height: 60px;
+}
+
+.upgrade-card_label {
+  display: block;
+  text-align: center;
+}
+
+/* Footer */
+.site-footer {
+  margin-top: 1.5rem;
+  padding: 0 1rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* =========================
+   Large screens
+   - Checkerboard background
+   - Center white "card"
+   - Two-column layout: Upgrades left, Reviews right
+========================= */
+@media (min-width: 768px) {
+  body {
+    background-image: url("/images/site/checkerboard.jpg");
+    background-size: 260px auto;
+    background-repeat: repeat;
+  }
+
+  #wrapper {
+    max-width: var(--maxw);
+    margin: 1.25rem auto;
+    border: 3px solid var(--brand);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    background: var(--surface);
+  }
+
+  main { padding: 0 1.25rem; }
+
+  .hero {
+    grid-template-columns: 1fr;
+  }
+
+  .hero_content {
+    transform: translate(1rem, 1rem);
+    max-width: 260px;
+  }
+
+  .home-grid {
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+    column-gap: 2rem;
+  }
+
+  /* On desktop screenshot: Upgrades left, Reviews right */
+  .upgrades { order: 1; }
+  .reviews { order: 2; }
+
+  .upgrades_grid {
+    max-width: none;
+  }
+}
