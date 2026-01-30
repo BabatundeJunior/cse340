@@ -96,7 +96,7 @@ nav li {
   padding: 0.6rem 0.4rem;
   color: #fff;
   font-weight: 600;
-  font-size: 0.95rem;
+  font-size: 0.82rem;
 }
 
 /* =========================
@@ -250,6 +250,36 @@ main {
 }
 
 /* =========================
+   Trigger Error Footer Link
+========================= */
+
+.footer-link {
+  margin: 0 0 0.75rem;
+}
+
+.footer-link a {
+  display: inline-block;
+  padding: 0.45rem 0.9rem;
+
+  font-weight: 700;
+  font-size: 0.9rem;
+
+  color: var(--brand);
+  text-decoration: none;
+
+  border: 2px solid var(--brand);
+  border-radius: 5px;
+
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.footer-link a:hover {
+  background: var(--brand);
+  color: #fff;
+}
+
+
+/* =========================
    Large screens
    - Checkerboard background
    - Center white "card"
@@ -294,5 +324,150 @@ main {
 
   .upgrades_grid {
     max-width: none;
+  }
+}
+
+
+/* ================================
+   Classification View Grid Styling
+   ================================ */
+
+/* The main UL wrapper */
+#inv-display {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0;
+
+  display: grid;
+  grid-template-columns: 1fr; /* Mobile first */
+  gap: 1.5rem;
+}
+
+/* Each vehicle card */
+#inv-display li {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#inv-display li:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Vehicle image */
+#inv-display img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Name + Price container */
+#inv-display .namePrice {
+  padding: 1rem;
+  text-align: center;
+}
+
+#inv-display .namePrice hr {
+  border: none;
+  border-top: 2px solid var(--brand);
+  margin: 0.5rem auto 1rem;
+  width: 60%;
+}
+
+/* Vehicle title */
+#inv-display .namePrice h2 {
+  margin: 0.5rem 0;
+  font-size: 1.15rem;
+}
+
+#inv-display .namePrice h2 a {
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 800;
+}
+
+#inv-display .namePrice h2 a:hover {
+  color: var(--brand);
+}
+
+/* Vehicle price */
+#inv-display .namePrice span {
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--brand-dark);
+}
+
+
+/* Larger screen for classification view */
+@media (min-width: 768px) {
+  #inv-display {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+
+/* =========================
+   Inventory Detail View
+========================= */
+.vehicle-detail {
+  display: grid;
+  grid-template-columns: 1fr; /* mobile first */
+  gap: 1.25rem;
+  margin: 1.5rem 0;
+}
+
+.vehicle-detail__image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+}
+
+.vehicle-detail__info {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem;
+}
+
+.vehicle-detail__info h1 {
+  margin: 0 0 0.5rem;
+  font-size: 1.6rem;
+  font-weight: 800;
+}
+
+.vehicle-detail__yearPrice {
+  margin: 0 0 1rem;
+  color: var(--brand-dark);
+  font-size: 1.1rem;
+}
+
+.vehicle-detail__info h2 {
+  margin: 1rem 0 0.5rem;
+  font-size: 1.2rem;
+}
+
+.vehicle-detail__info ul {
+  margin: 0;
+  padding-left: 1.2rem;
+}
+
+.vehicle-detail__info li {
+  margin: 0.6rem 0;
+}
+
+/* large screens: side-by-side */
+@media (min-width: 768px) {
+  .vehicle-detail {
+    grid-template-columns: 1.1fr 0.9fr;
+    align-items: start;
   }
 }
