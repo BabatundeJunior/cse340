@@ -1,0 +1,43 @@
+<section class="account-view">
+  <h1><%= title %></h1>
+
+  <% if (locals.errors) { %>
+  <ul class="notice">
+    <% errors.array().forEach(error => { %>
+      <li><%= error.msg %></li>
+    <% }) %>
+  </ul>
+<% } %>
+
+  <% if (locals.message) { %>
+    <div class="notice">
+      <%= message %>
+    </div>
+  <% } %>
+
+  <form class="account-form" action="/account/login" method="post">
+    <label for="account_email">Email:</label>
+    <input
+      type="email"
+      name="account_email"
+      id="account_email"
+      required
+      value="<%= locals.account_email %>"
+      placeholder="Enter a valid email address"
+    >
+
+    <label for="account_password">Password:</label>
+    <input
+      type="password"
+      name="account_password"
+      id="account_password"
+      required
+    >
+
+    <button type="submit">LOGIN</button>
+  </form>
+
+  <p class="account-alt">
+    No account? <a href="/account/register" title="Register for an account">Sign-up</a>
+  </p>
+</section>

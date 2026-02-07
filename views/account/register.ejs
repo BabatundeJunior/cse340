@@ -1,0 +1,77 @@
+<section class="account-view">
+  <h1><%= title %></h1>
+
+  <% if (locals.message) { %>
+    <div class="notice">
+      <%= message %>
+    </div>
+  <% } %>
+
+  <% if (errors) { %>
+  <ul class="notice">
+ <% errors.array().forEach(error => { %>
+   <li><%= error.msg %></li>
+<%  }) %>
+ </ul>
+<% } %>
+
+  <form class="account-form" action="/account/register" method="post">
+    <label for="account_firstname">First Name:</label>
+    <input
+      type="text"
+      name="account_firstname"
+      id="account_firstname"
+      required
+      value="<%= locals.account_firstname %>"
+    >
+
+    <label for="account_lastname">Last Name:</label>
+    <input
+      type="text"
+      name="account_lastname"
+      id="account_lastname"
+      required
+      value="<%= locals.account_lastname %>"
+    >
+
+    <label for="account_email">Email:</label>
+    <input
+      type="email"
+      name="account_email"
+      id="account_email"
+      required
+      value="<%= locals.account_email %>"
+      placeholder="Enter a valid email address"
+    >
+
+    <label for="account_password">Password:</label>
+    <input
+      type="password"
+      name="account_password"
+      id="account_password"
+      required
+      pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{12,}$"
+    >
+
+    <p class="form-hint">
+      Password must be at least 12 characters and include at least 1 uppercase letter,
+      1 number, and 1 special character.
+    </p>
+
+    <button class="btn-toggle" type="button" onclick="togglePassword()">
+      Show Password
+    </button>
+
+    <button type="submit">Register</button>
+  </form>
+</section>
+
+<script>
+  function togglePassword() {
+    const input = document.getElementById("account_password")
+    const btn = document.querySelector(".btn-toggle")
+    const isHidden = input.type === "password"
+    input.type = isHidden ? "text" : "password"
+    btn.textContent = isHidden ? "Hide Password" : "Show Password"
+  }
+</script>
