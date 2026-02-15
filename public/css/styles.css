@@ -505,6 +505,14 @@ main {
   color: #fff;
   margin-bottom: 1rem;
 }
+#messages {
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  color: #fff;
+  margin-bottom: 1rem;
+}
 
 .account-form {
   display: grid;
@@ -694,4 +702,94 @@ input:required:valid {
 .form-hint {
   margin: 0;
   color: var(--muted);
+}
+
+/* ===============================
+   Inventory Management Styling
+================================= */
+
+.inventory-management {
+  margin-top: 2rem;
+}
+
+.inventory-management h2 {
+  margin-bottom: 0.5rem;
+}
+
+.inventory-management p {
+  margin-bottom: 1rem;
+  color: var(--text);
+  font-weight: 500;
+}
+
+#classificationList {
+  width: 100%;
+  max-width: 400px;
+  padding: 0.6rem;
+  font-size: 1rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background-color: var(--surface);
+  margin-bottom: 1.5rem;
+  cursor: pointer;
+}
+
+
+#inventoryDisplay {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  background-color: var(--surface);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+}
+
+#inventoryDisplay thead {
+  background-color: var(--nav);
+  color: #fff;
+}
+
+#inventoryDisplay th,
+#inventoryDisplay td {
+  padding: 0.75rem;
+  text-align: left;
+}
+
+#inventoryDisplay tbody tr:nth-child(even) {
+  background-color: rgba(0, 0, 0, 0.03);
+}
+
+#inventoryDisplay tbody tr:hover {
+  background-color: rgba(0, 0, 0, 0.06);
+}
+
+#inventoryDisplay a {
+  text-decoration: none;
+  font-weight: 600;
+  padding: 0.35rem 0.6rem;
+  border-radius: 4px;
+  transition: 0.2s ease;
+}
+
+#inventoryDisplay a[href*="edit"] {
+  background-color: var(--brand);
+  color: #fff;
+}
+
+#inventoryDisplay a[href*="edit"]:hover {
+  background-color: var(--brand-dark);
+}
+
+#inventoryDisplay a[href*="delete"] {
+  background-color: #b00020;
+  color: #fff;
+}
+
+#inventoryDisplay a[href*="delete"]:hover {
+  background-color: #8a0018;
+}
+
+.account-view {
+  color: #fff;
 }
