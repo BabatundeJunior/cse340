@@ -1,5 +1,7 @@
 const invModel = require("../models/inventory-model")
 const utilities = require("../utilities/")
+const reviewModel = require("../models/review-model")
+
 
 const invCont = {}
 
@@ -23,17 +25,21 @@ invCont.buildByClassificationId = async function (req, res, next) {
  *  Build inventory item detail view
  * ************************** */
 invCont.buildByInventoryId = async function (req, res, next) {
-  const inv_id = req.params.invId
+  const inv_id = parseInt(req.params.invId)
   const data = await invModel.getInventoryByInvId(inv_id)
   const grid = await utilities.buildInventoryDetail(data)
+  const reviews = await reviewModel.getReviewsByInvId(inv_id)
   let nav = await utilities.getNav()
 
   res.render("./inventory/detail", {
     title: data.inv_make + " " + data.inv_model,
     nav,
     grid,
+    reviews,
+    inv_id,
   })
 }
+
 
 
 invCont.buildManagement = async function (req, res, next) {

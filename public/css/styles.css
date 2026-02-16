@@ -793,3 +793,34 @@ input:required:valid {
 .account-view {
   color: #fff;
 }
+
+
+.reviews {
+  margin-top: 2rem;
+  padding: 1rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.review-list {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+  display: grid;
+  gap: 1rem;
+}
+
+.review-card {
+  padding: 1rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: #fff;
+}
+
+.review-form {
+  margin-top: 1rem;
+  display: grid;
+  gap: 0.5rem;
+  max-width: 520px;
+}

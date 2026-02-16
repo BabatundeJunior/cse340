@@ -18,6 +18,8 @@ const utilities = require("./utilities/")
 const session = require("express-session")
 const pool = require('./database/')
 const bodyParser = require("body-parser")
+const reviewRoute = require("./routes/reviewRoute")
+
 
 
 
@@ -77,6 +79,8 @@ app.use("/inv", inventoryRoute)
 // Account routes
 app.use("/account", accountRoute)
 
+// review
+app.use("/reviews", reviewRoute)
 
 
 // File Not Found Route 

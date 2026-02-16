@@ -1,3 +1,50 @@
 
 
 <%- grid %>
+
+
+<section class="reviews">
+  <h2>Customer Reviews</h2>
+
+  <%- messages() %>
+
+  <% if (locals.reviews && reviews.length > 0) { %>
+    <ul class="review-list">
+      <% reviews.forEach(r => { %>
+        <li class="review-card">
+          <p class="review-rating">Rating: <strong><%= r.review_rating %>/5</strong></p>
+          <p class="review-text"><%= r.review_text %></p>
+          <p class="review-meta">
+            — <%= r.account_firstname %> <%= r.account_lastname %>,
+            <%= new Date(r.review_date).toLocaleDateString("en-US") %>
+          </p>
+        </li>
+      <% }) %>
+    </ul>
+  <% } else { %>
+    <p>No reviews yet. Be the first to review this vehicle.</p>
+  <% } %>
+
+  <% if (locals.loggedin) { %>
+    <h3>Leave a Review</h3>
+
+    <form class="review-form" action="/reviews/<%= inv_id %>" method="post">
+      <label for="review_rating">Rating (1–5)</label>
+      <select name="review_rating" id="review_rating" required>
+        <option value="">Choose</option>
+        <option value="5">5 - Excellent</option>
+        <option value="4">4 - Good</option>
+        <option value="3">3 - Okay</option>
+        <option value="2">2 - Poor</option>
+        <option value="1">1 - Terrible</option>
+      </select>
+
+      <label for="review_text">Review</label>
+      <textarea name="review_text" id="review_text" required minlength="10"></textarea>
+
+      <button type="submit">Submit Review</button>
+    </form>
+  <% } else { %>
+    <p><a href="/account/login">Log in</a> to leave a review.</p>
+  <% } %>
+</section>

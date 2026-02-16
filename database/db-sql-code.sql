@@ -272,3 +272,16 @@ WHERE inv_id = (
 UPDATE public.inventory
 SET inv_image = REPLACE(inv_image, '/images/', '/images/vehicles/'),
     inv_thumbnail = REPLACE(inv_thumbnail, '/images/', '/images/vehicles/');
+
+
+/*===================================
+Table creation for review new enhancement added
+=====================================*/
+CREATE TABLE IF NOT EXISTS review (
+  review_id SERIAL PRIMARY KEY,
+  review_text TEXT NOT NULL,
+  review_rating INT NOT NULL CHECK (review_rating BETWEEN 1 AND 5),
+  inv_id INT NOT NULL REFERENCES inventory(inv_id) ON DELETE CASCADE,
+  account_id INT NOT NULL REFERENCES account(account_id) ON DELETE CASCADE,
+  review_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
